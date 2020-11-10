@@ -1,0 +1,33 @@
+.container {
+    height: 600px;
+    width: 900px;
+}
+
+#heading {
+    text-align: center;
+    padding: 10px;
+    font-size: large;
+    font-weight: bold;
+}
+
+#nav-header {
+    font-weight: 400;  
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    border: royalblue thin solid;
+    background-color: rgb(106, 194, 235);
+}
+
+#shapes {
+    height: 450px;
+    width: 150px;
+    padding: 20px;
+    /* margin: auto; */
+    border: solid thin  royalblue;
+    float: left;
+}
+
+#target {
+    border: solid thin royalblue;
+}

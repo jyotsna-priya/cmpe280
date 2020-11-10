@@ -1,0 +1,7 @@
+npm init
+npm install nodemon --save-dev
+npm install express
+npm install fs
+npm install ejs
+npm install path
+npm install morgan

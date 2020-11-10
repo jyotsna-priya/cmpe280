@@ -1,0 +1,13 @@
+.vertical-separator{
+    width: 2px;
+    /* background-color: hsl(184, 100%, 60%); */
+    background-color: #037bfe;
+    height: inherit;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.user_profile_photo{
+    width:100px;
+    height:100px;
+}

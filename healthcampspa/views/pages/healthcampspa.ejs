@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/spa.css">
+    <title>Health Camp SPA</title>
+</head>
+
+<body>
+    <div class="container-fluid w-80 mt-2">
+        <nav class="navbar navbar-light m-2" style="background-color:#092859">
+            <span class="navbar-brand mb-0 h1" style="font-weight: 400 ;color:mintcream" >Health Camp SPA</span>
+            <div class="nav nav-pills mb-0 float-right" id="nav-tab" role="tablist" style="font-weight: 600; color:mintcream">
+                <a class="nav-item nav-link active text-white" id="nav-demo-tab" data-toggle="tab" href="#nav-demo" role="tab" aria-controls="nav-demo" aria-selected="true">Demographics</a>
+                <a class="nav-item nav-link text-white" id="nav-vitals-tab" data-toggle="tab" href="#nav-vitals" role="tab" aria-controls="nav-vitals" aria-selected="false">Health Vitals</a>
+                <a class="nav-item nav-link text-white" id="nav-report-tab" data-toggle="tab" href="#nav-report" role="tab" aria-controls="nav-report" aria-selected="false">Reports</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+
+            <!--Demographics Tab-->
+            <div class="tab-pane fade show active" id="nav-demo" role="tabpanel" aria-labelledby="nav-demo-tab">
+                <div class="container">
+                    <div class="row mt-1 p-2">
+                        <div class="card card-body col-md-8 text-right border-0"> 
+    
+                            <div class="row mt-1">
+                                <label class="col-md-4 control-label font-weight-bold" for="fName">First Name:</label>
+                                <input class="col-md-8 form-control" type="text" name="fName" id="fName" required/>
+                            </div>
+                            
+                            <div class="row mt-1">
+                                <label class="col-md-4 control-label font-weight-bold" for="lName">Last Name:</label>
+                                <input class="col-md-8 form-control" type="text" name="lName" id="lName" required/>
+                            </div>                            
+        
+                            <div class="row mt-1">
+                                <label  class="col-md-4 font-weight-bold" for="gender">Gender:</label>
+                                <select class="col-md-8 form-control" id="gender" name="gender" placeholder="Choose Gender">
+                                    <option value="" disabled selected hidden>Please select...</option> 
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Other">Others</option>
+                                </select>
+                            </div>
+
+                            <div class="row mt-1">
+                                <label class="col-md-4 control-label font-weight-bold " for="age">Age:</label>
+                                <input class="col-md-8 form-control" type="number" name="age" id="age" min="1" required/>
+                            </div> 
+        
+                            <div class="row mt-1">
+                                <label  class="col-md-4 font-weight-bold" for="notes">Notes & Other Details:</label>
+                                <input class="col-md-8 form-control" type="text" name="notes" id="notes" required />
+                            </div>
+        
+                            <div class="row m-3">
+                                <button id="savebutton" class="btn btn-success btn-lg col-md-4 m-2" onclick="insertTable()">Save</button>
+                            </div>
+
+                        </div>
+                        <div class="vertical-separator">
+                            
+                        </div>
+                        <div class="card card-body col-md-3 text-center border-0 h-100">
+                            <video id="player" autoplay></video>
+                            <div id="capture" class="btn-success btn-lg rounded">Capture</div>
+                            <canvas id="canvas" width=100 height=100>
+                                <img id="photo">
+                            </canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!--Health Vitals Tab-->
+            <div class="tab-pane fade" id="nav-vitals" role="tabpanel" aria-labelledby="nav-vitals-tab">
+                    <div class="container">
+                        <div class="row mt-1 p-2">
+                            <div class="card card-body col-md-8 text-right border-0"> 
+        
+                                <div class="row mt-1">
+                                    <label class="col-md-4 control-label font-weight-bold " for="Height">Height(in):</label>
+                                    <input class="col-md-8 form-control" type="number" name="Height" id="height" min="0" required/>
+                                </div>
+                                
+                                <div class="row mt-1">
+                                    <label class="col-md-4 control-label font-weight-bold" for="Weight">Weight(kg):</label>
+                                    <input class="col-md-8 form-control" type="number" name="Weight" id="weight" min="0" required/>
+                                </div> 
+                                
+                                <div class="row mt-1">
+                                    <label class="col-md-4 control-label font-weight-bold" for="BT">Body Temperature(C):</label>
+                                    <input class="col-md-8 form-control" type="number" name="BT" id="BT" min="0" required/>
+                                </div> 
+    
+                                <div class="row mt-1">
+                                    <label class="col-md-4 control-label font-weight-bold" for="PR">Pulse Rate(bpm):</label>
+                                    <input class="col-md-8 form-control" type="number" name="PR" id="PR" min="0" required/>
+                                </div> 
+            
+                                <div class="row mt-1">
+                                    <label  class="col-md-4 font-weight-bold" for="BP">Blood Pressure(mmHg):</label>
+                                    <input class="col-md-8 form-control" type="text" name="BP" id="BP" required />
+                                </div>
+            
+                                <div class="row m-5">
+                                    <button type="submit" id="savebutton" class="btn btn-success btn-lg col-md-4 m-2" onclick="updateTable()">Save</button>
+                                </div>
+    
+                            </div>
+                            <div class="vertical-separator">
+                                
+                            </div>
+                            <div class="card card-body col-md-3 text-left border-0 h-100">
+                                <div class="row mt-1">
+                                    <label class="font-weight-bold" for="medications">Medications:</label>
+                                    <textarea class="col-md-12 form-control" rows="3" name="medications" id="medications" required></textarea>
+                                </div>
+                                <div class="row mt-1">
+                                    <label class="font-weight-bold" for="med_notes">Notes:</label>
+                                    <textarea class="col-md-12 form-control" rows="3" name="med_notes" id="med_notes" required></textarea>
+                                </div>                              
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+            <!--Reports Tab-->
+            <div class="tab-pane fade" id="nav-report" role="tabpanel" aria-labelledby="nav-report-tab">
+                <div class="container mt-2">
+                    <table class="table table-striped table-hover table-bordered m-1 p-5" id="patient_table">
+                        <thead>
+                            <tr class="table-primary text-justify text-white font-weight-bold"><th scope="row" colspan="6">Patient Details</th></tr>
+                            <tr style="background-color:rgb(91, 140, 231) ">
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>Photo</th>
+                                <th>Medications</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--Result from DB gets populated here-->
+                        </tbody>
+                    </table>
+
+                    <div class="row m-5">
+                        <button type="submit" id="reportbutton" class="btn btn-success btn-lg col-md-4 m-2" onclick="fetchData();">Show Report</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    
+    </div>  
+    <script src="/js/hcspa.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

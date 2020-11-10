@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="draganddrop.css" type="text/css">
+    <script src="draganddrop.js"></script>
+</head>
+</head>
+<body>
+    <div class="container">
+        <nav id="nav-header">
+            <p id="heading">Drag and Drop Control Palette HTML Driver</p>
+        </nav>
+        <div id="shapes" ondrop="ignoreDrop(event)" ondragover="allowDrop(event)">
+            <canvas id="rectangle" draggable="true" height="100" width="100" ondragstart="dragShape(event)"></canvas>
+            <canvas id="circle" draggable="true" height="100" width="100" ondragstart="dragShape(event)"></canvas>
+            <canvas id="triangle" draggable="true" height="100" width="100" ondragstart="dragShape(event)"></canvas>
+            <canvas id="arrow" draggable="true" height="100" width="100" ondragstart="dragShape(event)"></canvas>
+        </div>
+        <canvas id="target" height="450" width="715" ondrop="ignoreDrop(event)" ondragover="ignoreDrop(event)"></canvas>
+    </div>
+    
+</body>
+</html>
